@@ -1,6 +1,19 @@
-<div>
-  <h2>Home</h2>
+<div class="container">
+  <div>
+    <h2>Home</h2>
+  </div>
+  <div>Valor: {{ commonService.value }}</div>
+  <div>
+    Espera:
+    <input type="number" [(ngModel)]="commonService.delay" />
+    (milisegundos)
+  </div>
+  <div>
+    Nuevo valor: <input type="text" [(ngModel)]="commonService.value" />
+  </div>
+  @if(commonService.value) {
+  <div>
+    <a routerLink="/page1">Página 1</a>
+  </div>
+  }
 </div>
-<div>Valor: {{ commonService.value }}</div>
-<div>Nuevo valor: <input type="text" [(ngModel)]="commonService.value" /></div>
-<div><a routerLink="/page1">Página 1</a></div>

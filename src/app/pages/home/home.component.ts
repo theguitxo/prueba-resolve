@@ -7,6 +7,7 @@ import { CommonService } from '../../services/common.service';
   imports: [FormsModule, RouterLink],
   selector: 'selector-name',
   templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   public readonly commonService!: CommonService;

@@ -4,6 +4,7 @@ import {
   Resolve,
   RouterStateSnapshot,
 } from '@angular/router';
+import { timer } from 'rxjs';
 import { CommonService } from './common.service';
 
 @Injectable({ providedIn: 'root' })
@@ -14,7 +15,14 @@ export class RouteResolveService implements Resolve<string> {
     this.commonService = inject(CommonService);
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): string {
-    return this.commonService.value;
+  async resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Promise<string> {
+    return await new Promise((resolve) =>
+      timer(this.commonService.delay).subscribe(() =>
+        resolve(this.commonService.value)
+      )
+    );
   }
 }

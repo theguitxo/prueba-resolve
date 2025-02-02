@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  & h2 {
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+}
+
+input[type="number"] {
+  width: 5rem;
+}
